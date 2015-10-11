@@ -43,6 +43,17 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             return 0
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "tweetDetailSegue" {
+            let tweetDetailViewController = segue.destinationViewController as! TweetDetailViewController
+            let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
+            
+            if let tweet = self.tweets?[indexPath!.row] {
+                tweetDetailViewController.tweet = tweet
+            }
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
