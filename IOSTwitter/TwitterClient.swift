@@ -23,7 +23,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         return Static.instance
     }
     
-    func homeTimeLineWithCompletion(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError) -> ()) {
+    func homeTimeLineWithCompletion(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
         
         GET("1.1/statuses/home_timeline.json", parameters: params, success: { (operation:AFHTTPRequestOperation!, response:AnyObject!) -> Void in
             //print("home timeline: \(response)")
@@ -49,7 +49,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         TwitterClient.sharedInstance.requestSerializer.removeAccessToken()
         TwitterClient.sharedInstance.fetchRequestTokenWithPath("oauth/request_token", method: "GET", callbackURL: NSURL(string: "cptwitterdemo://oauth"), scope: nil, success: { (requestToken: BDBOAuth1Credential!) -> Void in
             print("Got the request token")
-            var authURL = NSURL(string: "https://api.twitter.com/oauth/authorize?oauth_token=\(requestToken.token)")
+            let authURL = NSURL(string: "https://api.twitter.com/oauth/authorize?oauth_token=\(requestToken.token)")
             UIApplication.sharedApplication().openURL(authURL!)
             
             }) {

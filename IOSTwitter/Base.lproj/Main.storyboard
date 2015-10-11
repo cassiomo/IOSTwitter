@@ -29,14 +29,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="1hF-4Y-8lv" kind="modal" identifier="loginSegue" id="U6g-XQ-ZzT"/>
+                        <segue destination="TYU-hF-BsY" kind="modal" identifier="loginSegue" id="U6g-XQ-ZzT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-392" y="460"/>
         </scene>
-        <!--Tweets View Controller-->
+        <!--Home-->
         <scene sceneID="0Rg-1c-tQW">
             <objects>
                 <viewController storyboardIdentifier="TweetsViewController" id="1hF-4Y-8lv" customClass="TweetsViewController" customModule="IOSTwitter" customModuleProvider="target" sceneMemberID="viewController">
@@ -55,8 +55,32 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Home" id="wL5-Mo-1mX">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="bMl-xW-I4n"/>
+                        <barButtonItem key="rightBarButtonItem" title="Compose" id="EPg-rz-TAb"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2cZ-kj-ede" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="740" y="460"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="7UU-fH-6U7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TYU-hF-BsY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="hK5-ON-d3A"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aeb-fh-Nks">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1hF-4Y-8lv" kind="relationship" relationship="rootViewController" id="ZC0-Sv-jpk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ssU-Gp-STP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="208" y="460"/>
         </scene>
