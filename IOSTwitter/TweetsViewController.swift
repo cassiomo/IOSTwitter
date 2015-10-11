@@ -11,6 +11,7 @@ import UIKit
 class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
 
     var tweets : [Tweet]?
+    var refreshControl:UIRefreshControl!
     
     @IBOutlet weak var tableView: UITableView!
     @IBAction func onLogout(sender: AnyObject) {
@@ -22,8 +23,17 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
 
         tableView.delegate = self
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
+
+        reloadTweets()
         
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "reloadTweets", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl)
+
+    }
+    
+    func reloadTweets() {
         TwitterClient.sharedInstance.homeTimeLineWithCompletion(nil, completion: { (tweets, error) -> () in
             self.tweets = tweets
             self.tableView.reloadData()
@@ -51,6 +61,9 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             
             if let tweet = self.tweets?[indexPath!.row] {
                 tweetDetailViewController.tweet = tweet
+            } else if segue.identifier == "tweetComposeSegue" {
+                let tweetComposeViewController = segue.destinationViewController as! TweetComposeViewController
+                //tweetComposeViewController.tweet = tweet
             }
         }
     }
