@@ -20,6 +20,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     var leftViewLeftBound:  CGPoint!
     var leftViewRightBound: CGPoint!
     
+//    var profileUser : User?
+    
     
     @IBOutlet weak var leftView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -74,6 +76,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             break
         }
     }
+    
+//    @IBAction func onProfile(sender: AnyObject) {
+//        profileUser = User.currentUser
+//        performSegueWithIdentifier("tweetProfileSegue", sender: nil)
+//    }
+    
     
     private func slideleftMenu(newCenter: CGPoint) {
         UIView.animateWithDuration(0.3,
@@ -139,10 +147,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             
             if let tweet = self.tweets?[indexPath!.row] {
                 tweetDetailViewController.tweet = tweet
-            } else if segue.identifier == "tweetComposeSegue" {
-                let tweetComposeViewController = segue.destinationViewController as! TweetComposeViewController
-                //tweetComposeViewController.tweet = tweet
+            } else {
+                 // nil case
             }
+        } else if segue.identifier == "tweetProfileSegue" {
+            let tweetProfileViewController = segue.destinationViewController as! TweetUserProfileViewController
+            tweetProfileViewController.user = User.currentUser
         }
     }
 

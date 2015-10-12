@@ -16,10 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWv-ui-Rsp">
-                                <rect key="frame" x="450" y="78" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYn-ac-RwM">
                                 <rect key="frame" x="99" y="269" width="122" height="30"/>
                                 <state key="normal" title="Login with Twitter"/>
@@ -121,11 +117,11 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlO-Qa-4kA" userLabel="Profile">
                                         <rect key="frame" x="28" y="155" width="69" height="30"/>
-                                        <state key="normal" title="User Profile">
+                                        <state key="normal" title="Profile">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="xrs-2v-ble" kind="push" id="8LD-J7-7Qm"/>
+                                            <segue destination="xrs-2v-ble" kind="push" identifier="tweetProfileSegue" id="9Ey-OS-inc"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0q-nd-Vzb">
@@ -192,7 +188,7 @@
             </objects>
             <point key="canvasLocation" x="561" y="460"/>
         </scene>
-        <!-- User Profile-->
+        <!-- Profile-->
         <scene sceneID="BVg-Th-8T2">
             <objects>
                 <viewController id="xrs-2v-ble" customClass="TweetUserProfileViewController" customModule="IOSTwitter" customModuleProvider="target" sceneMemberID="viewController">
@@ -204,10 +200,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vC0-0i-wyJ" userLabel="ProfileView">
-                                <rect key="frame" x="96" y="130" width="129" height="113"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KpK-xL-Uy7" userLabel="BackgroundView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KpK-xL-Uy7" userLabel="BackgroundView">
                                 <rect key="frame" x="0.0" y="64" width="320" height="245"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ni-z1-nWg">
@@ -244,7 +237,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pd-yO-PEa" userLabel="nameLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pd-yO-PEa" userLabel="nameLabel">
                                 <rect key="frame" x="121" y="251" width="73" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -262,19 +255,32 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dRZ-Og-JF5">
+                                <rect key="frame" x="108" y="137" width="105" height="83"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="105" id="NKZ-Sr-6Ni"/>
+                                    <constraint firstAttribute="height" constant="83" id="PiU-h9-f8a"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vC0-0i-wyJ" firstAttribute="centerX" secondItem="hBg-bf-PC6" secondAttribute="centerX" id="Dpl-C2-SP5"/>
+                            <constraint firstItem="KpK-xL-Uy7" firstAttribute="leading" secondItem="hBg-bf-PC6" secondAttribute="leading" id="Ing-k8-2zg"/>
+                            <constraint firstItem="dRZ-Og-JF5" firstAttribute="leading" secondItem="hBg-bf-PC6" secondAttribute="leading" constant="108" id="Jqv-eG-KFL"/>
+                            <constraint firstAttribute="trailing" secondItem="KpK-xL-Uy7" secondAttribute="trailing" id="OYC-6b-nJ1"/>
+                            <constraint firstItem="KpK-xL-Uy7" firstAttribute="top" secondItem="ph3-Qr-efe" secondAttribute="bottom" id="eCN-Gr-HC4"/>
+                            <constraint firstItem="dRZ-Og-JF5" firstAttribute="top" secondItem="ph3-Qr-efe" secondAttribute="bottom" constant="73" id="lUK-aC-91v"/>
+                            <constraint firstItem="1Pd-yO-PEa" firstAttribute="top" secondItem="dRZ-Og-JF5" secondAttribute="bottom" constant="31" id="ssb-tL-SuR"/>
+                            <constraint firstAttribute="trailing" secondItem="dRZ-Og-JF5" secondAttribute="trailing" constant="107" id="wvL-m3-pmW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title=" User Profile" id="trh-Ss-4Rj"/>
+                    <navigationItem key="navigationItem" title=" Profile" id="trh-Ss-4Rj"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="KpK-xL-Uy7" id="2fQ-Dy-7w3"/>
                         <outlet property="followersCounts" destination="E96-aX-kSh" id="gUu-rI-sM8"/>
                         <outlet property="followingCounts" destination="WUJ-Nw-5MK" id="zsV-fe-ea4"/>
                         <outlet property="nameLabel" destination="1Pd-yO-PEa" id="gWo-qG-PeY"/>
-                        <outlet property="profileImageView" destination="vC0-0i-wyJ" id="2Fw-iR-0CU"/>
+                        <outlet property="profileImageView" destination="dRZ-Og-JF5" id="dHO-6w-s45"/>
                         <outlet property="screenNameLabel" destination="nib-3r-KT2" id="Y1w-Nt-5xG"/>
                         <outlet property="tweetsCounts" destination="dfF-TQ-fRY" id="igU-V6-cGx"/>
                     </connections>
@@ -334,7 +340,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZE-6s-QaR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1022" y="118"/>
+            <point key="canvasLocation" x="1000" y="-212"/>
         </scene>
         <!--Tweet Detail View Controller-->
         <scene sceneID="kM1-2h-HD1">

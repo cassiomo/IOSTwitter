@@ -18,26 +18,33 @@ class TweetUserProfileViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var backgroundImageView: UIImageView!
+    
+    var user : User! {
+        didSet {
+            
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if (user != nil) {
+            followersCounts.text = "\(user.numFollowers!)"
+            followingCounts.text = "\(user.numFollowing!)"
+            tweetsCounts.text = "\(user.numTweets!)"
+            screenNameLabel.text = "@\(user.screenname!)"
+            nameLabel.text = user.name
+            
+            //profileImageView.setImageWithURL(NSURL(string : (User.currentUser?.profileImageUrl)!))
+
+            profileImageView.setImageWithURL(NSURL(string: (user?.profileImageUrl!)!))
+            backgroundImageView.setImageWithURL(NSURL(string: user.profileBGImageURL!))
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

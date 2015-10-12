@@ -32,7 +32,7 @@ class TweetComposeViewController: UIViewController {
     
     var tweet : Tweet! {
         didSet {
-            
+            print(tweet)
         }
     }
     
@@ -43,9 +43,9 @@ class TweetComposeViewController: UIViewController {
         profileViewImage.setImageWithURL(NSURL(string : (User.currentUser?.profileImageUrl)!))
         screenName.text = User.currentUser?.screenname
         
-        if (tweet != nil) {
-            tweetText.text = "@\(tweet!.user?.screenname)"
-        }
+//        if (tweet != nil) {
+//            tweetText.text = "@\(tweet!.user?.screenname)"
+//        }
 
     }
 
