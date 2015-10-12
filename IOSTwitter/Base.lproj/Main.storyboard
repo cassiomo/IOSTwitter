@@ -116,6 +116,30 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V6G-nw-nnl">
+                                <rect key="frame" x="-132" y="64" width="132" height="504"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlO-Qa-4kA">
+                                        <rect key="frame" x="28" y="155" width="69" height="30"/>
+                                        <state key="normal" title="My Profile">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0q-nd-Vzb">
+                                        <rect key="frame" x="42" y="193" width="41" height="30"/>
+                                        <state key="normal" title="Home">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPx-EH-1xo">
+                                        <rect key="frame" x="30" y="225" width="240" height="30"/>
+                                        <state key="normal" title="Mentions">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Hs-Jz-ecA">
                                 <rect key="frame" x="69" y="489" width="183" height="30"/>
                                 <state key="normal" title="Logout"/>
@@ -133,6 +157,9 @@
                             <constraint firstItem="Fvi-Op-0Wx" firstAttribute="top" secondItem="qD9-bh-PhO" secondAttribute="bottom" constant="29" id="SUb-gB-81r"/>
                             <constraint firstAttribute="trailing" secondItem="qD9-bh-PhO" secondAttribute="trailing" id="j4e-7j-VYm"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="s1E-xW-gi1" appends="YES" id="0eu-Xm-Pyq"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="wL5-Mo-1mX">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="bMl-xW-I4n">
@@ -147,12 +174,18 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="leftView" destination="V6G-nw-nnl" id="uBJ-Ky-GCh"/>
                         <outlet property="tableView" destination="qD9-bh-PhO" id="hkh-ZQ-Tff"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2cZ-kj-ede" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="s1E-xW-gi1">
+                    <connections>
+                        <action selector="onSwipe:" destination="1hF-4Y-8lv" id="N9U-s9-5Bz"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="458" y="460"/>
+            <point key="canvasLocation" x="561" y="460"/>
         </scene>
         <!--TwitterPost-->
         <scene sceneID="Thd-Vz-S4Q">

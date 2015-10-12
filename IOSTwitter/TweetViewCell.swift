@@ -16,6 +16,12 @@ class TweetViewCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var profileView: UIImageView!
     
+    var lefView : UIView! {
+        didSet {
+            //print("Setting leftPanelView")
+        }
+    }
+    
     var tweet : Tweet! {
         didSet{
             screenname.text = "@\(tweet.user!.screenname)"
