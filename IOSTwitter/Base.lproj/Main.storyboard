@@ -116,7 +116,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V6G-nw-nnl">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V6G-nw-nnl">
                                 <rect key="frame" x="-132" y="64" width="132" height="504"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlO-Qa-4kA">
@@ -155,7 +155,9 @@
                             <constraint firstItem="Fvi-Op-0Wx" firstAttribute="top" secondItem="4Hs-Jz-ecA" secondAttribute="bottom" id="OWn-XR-fmg"/>
                             <constraint firstItem="qD9-bh-PhO" firstAttribute="leading" secondItem="Ep0-qK-c39" secondAttribute="leading" id="Qsx-Ey-NzR"/>
                             <constraint firstItem="Fvi-Op-0Wx" firstAttribute="top" secondItem="qD9-bh-PhO" secondAttribute="bottom" constant="29" id="SUb-gB-81r"/>
+                            <constraint firstAttribute="bottom" secondItem="V6G-nw-nnl" secondAttribute="bottom" id="T2e-Rf-kud"/>
                             <constraint firstAttribute="trailing" secondItem="qD9-bh-PhO" secondAttribute="trailing" id="j4e-7j-VYm"/>
+                            <constraint firstItem="V6G-nw-nnl" firstAttribute="top" secondItem="Ep0-qK-c39" secondAttribute="top" id="jwL-HV-d0w"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="s1E-xW-gi1" appends="YES" id="0eu-Xm-Pyq"/>
